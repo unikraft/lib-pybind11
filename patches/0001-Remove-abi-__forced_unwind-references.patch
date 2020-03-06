@@ -1,0 +1,35 @@
+From f5d2514f82d61b98245ed038e5e806eebc006c67 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Vlad-Andrei=20B=C4=82DOIU?=
+ <vlad_andrei.badoiu@stud.acs.upb.ro>
+Date: Thu, 5 Mar 2020 16:30:27 +0200
+Subject: [PATCH 1/1] Remove abi::__forced_unwind references
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+We currently do not support abi::__force_unwind. We
+remove the only reference to it from pybind.
+
+Signed-off-by: Vlad-Andrei BĂDOIU <vlad_andrei.badoiu@stud.acs.upb.ro>
+---
+ include/pybind11/pybind11.h | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/include/pybind11/pybind11.h b/include/pybind11/pybind11.h
+index c623705..65da897 100644
+--- a/include/pybind11/pybind11.h
++++ b/include/pybind11/pybind11.h
+@@ -667,10 +667,6 @@ protected:
+         } catch (error_already_set &e) {
+             e.restore();
+             return nullptr;
+-#if defined(__GNUG__) && !defined(__clang__)
+-        } catch ( abi::__forced_unwind& ) {
+-            throw;
+-#endif
+         } catch (...) {
+             /* When an exception is caught, give each registered exception
+                translator a chance to translate it to a Python exception
+-- 
+2.20.1
+
