@@ -1,0 +1,12 @@
+menuconfig LIBPYBIND11
+	bool "pybind11 - Seamless operability between C++11 and Python"
+	select LIBCXX
+	select LIBPYTHON3
+	select LIBNEWLIBC
+	select LIBLWIP
+	select LIBPTHREAD_EMBEDDED
+	select LIBCXXABI
+	select LIBUNWIND
+	select LIBCOMPILER_RT
+	default n
+
