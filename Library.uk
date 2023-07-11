@@ -1,0 +1,6 @@
+name        := "pybind11"
+description := "A lightweight header-only library that exposes C++ types in Python and vice versa, mainly to create Python bindings of existing C++ code."
+gitrepo     := "https://github.com/pybind/pybind11.git"
+homepage    := "http://pybind11.readthedocs.org"
+version     := 2.4.3 sha256:1eed57bc6863190e35637290f97a20c81cfe4d9090ac0a24f3bbf08f265eb71d https://github.com/pybind/pybind11/archive/v2.4.3.tar.gz
+license     := "BSD-3-Clause"
